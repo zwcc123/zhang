@@ -6,7 +6,7 @@ import { Message } from 'element-ui';
 
 //创建请求实例
 const instance = axios.create({
-	baseURL:process.env.NODE_ENV === 'production' ? ".." : "http://192.168.1.68:8088/portal",
+	baseURL:process.env.NODE_ENV === 'production' ? ".." : "http://10.0.0.159:8088/portal",
 	timeout: 10000,
 	headers:{
 		'Content-Type': 'application/json;charset=UTF-8',
@@ -43,7 +43,7 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
 	(response) => {
 		// 对响应数据做点什么
-		if(response.data.result == 'ok' || response.data.result == 'OK' || (response.status==200 && response.data.length > 0) || response.data.status=="S" || (response.data.result=="OK" && response.data.data.length > 0) || (response.status==200 && response.data.data.length > 0)){
+		if(response.data.result == 'ok' || response.data.result == 'OK'){
 			// console.log(response)
 			return response;
 		}else{

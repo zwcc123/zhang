@@ -1,8 +1,7 @@
 const webpack = require("webpack")
 module.exports = {
 	assetsDir: 'static',
-	//com.awspaas.user.apps.bpm_actions.portal为应用的名称
-	publicPath: process.env.NODE_ENV == 'development' ? '/' : '../apps/com.awspaas.user.apps.bpm_actions.portal/',
+	publicPath: process.env.NODE_ENV == 'development' ? '/' : '../web/',
 	outputDir: './dist',
 	indexPath: 'index.html',
 	productionSourceMap: false,
@@ -34,11 +33,11 @@ module.exports = {
 			errors: true,
 		},
 		proxy:{
-			"luxApi":{
-				target:'https://m.luxshare-ict.com/api/bpm',
+			"baidupi":{
+				target:'https://baidu.com/api/',
 				changeOrigin: true,
 				pathRewrite:{
-					"^/luxApi":"/"
+					"^/baidupi":"/"
 				}
 			},
 		}
