@@ -239,14 +239,14 @@ html,
 body {
   overflow: hidden;
 }
-::v-deep .van-list__finished-text,
-::v-deep .van-list__loading {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 211;
-}
+// ::v-deep .van-list__finished-text,
+// ::v-deep .van-list__loading {
+//   position: fixed;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   z-index: 211;
+// }
 .bb {
   height: 50px;
   line-height: 50px;
