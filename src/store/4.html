@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 文本超出两行显示省略号，并设置“展开”，“收起”效果-->
+  <style>
+    /* 底部容器 */
+    .export-info-bar {
+      position: relative;
+      /* overflow: hidden; */
+      margin-top: 10px;
+    }
+
+    /* 文本 */
+    .ellipsis-text {
+      position: relative;
+      /* float: left; */
+      /* （***）设置最大高度为两行的高度 */
+      max-height: 42px; 
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      word-break: break-all;
+      word-wrap: break-word;
+      /* 设置文本在按钮下方 */
+      z-index: 0; 
+    }
+
+    /* 按钮前方省略号的样式 */
+    .pseudo-element {
+      color: #000;
+      margin-right: 5px;
+    }
+
+    /* 按钮 */
+    .expand-button {
+      /* (***) 设置定位，使按钮与最后一行平行并覆盖在最后一行上方 */
+      position: absolute;
+      /* 设置按钮浮动在右方 */
+      /* float: right; */
+      /* 默认隐藏按钮 */
+      display: none;
+      /* 将按钮向上移动一行 */
+      right: 0px;
+      bottom: -3px;
+      color: skyblue;
+      /* 此处背景一定要设置， */
+      background: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class='export-info-bar'>
+    <span class='ellipsis-text export-info-text'>
+      测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试
+    </span>
+    <span class='expand-button export-btn-group'>
+      展开
+    </span>
+  </div>
+  <div class='export-info-bar'>
+    <span class='ellipsis-text export-info-text'>
+      测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试
+    </span>
+    <span class='expand-button export-btn-group'>
+      展开
+    </span>
+  </div>
+  <div class='export-info-bar'>
+    <span class='ellipsis-text export-info-text'>
+      测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</span>
+    <span class='expand-button export-btn-group'>
+      展开
+    </span>
+  </div>
+  <script type="text/javascript">
+    // 元素前方插入文本
+    const addContentBefore = (element, content) => {
+      // 创建一个新的伪元素
+      const pseudoElement = document.createElement('span');
+      pseudoElement.classList.add('pseudo-element');
+      pseudoElement.textContent = content;
+
+      // 将伪元素插入到目标元素的前面
+      if (element.firstChild) {
+        element.insertBefore(pseudoElement, element.firstChild);
+      } else {
+        element.appendChild(pseudoElement);
+      }
+    };
+
+    const getMoreText = () => {
+        // 获取文本容器
+        const textContents = document.querySelectorAll('.export-info-text');
+        // 获取按钮容器
+        const expandButtons = document.querySelectorAll('.expand-button');
+
+        // 检查文本是否有超出两行的文本，并显示展开按钮
+        textContents.forEach((content, index) => {
+          // 输出查看当前高度是否超过两行高度（根据当前字体大小进行适配）
+          console.log(content.scrollHeight, content.clientHeight)
+          if (content.scrollHeight > content.clientHeight) {
+            expandButtons[index].style.display = 'block'; // 显示展开按钮
+            addContentBefore(expandButtons[index], '...'); // 按钮前方模拟省略号
+          }
+        });
+
+        // 为所有按钮绑定点击事件
+        expandButtons.forEach((button, index) => {
+          button.addEventListener('click', () => {
+            // 切换文本的max-height属性，实现展开效果
+            const content = textContents[index];
+            if (content.style.maxHeight !== 'none') {
+               // 如果未展开，展开所有文本
+              content.style.maxHeight = 'none';
+              button.textContent = '收起'; // 改变按钮文本
+              addContentBefore(button, '');
+            } else {
+              // 如果已经展开，恢复到两行
+              content.style.maxHeight = '42px'; // 恢复到两行的高度
+              button.textContent = '展开'; // 恢复按钮文本
+              addContentBefore(button, '...');
+            }
+          });
+        });
+      };
+
+    getMoreText();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模拟微信朋友圈九宫格排版</title>
+    <style>
+        .box {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .imageBox {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2%;
+            width: 300px;
+        }
+
+        /* 2/3 */
+        .imageBox img:nth-child(1):nth-last-child(2),
+        .imageBox img:nth-child(2):nth-last-child(1),
+        .imageBox img:nth-child(1):nth-last-child(3),
+        .imageBox img:nth-child(2):nth-last-child(2),
+        .imageBox img:nth-child(3):nth-last-child(1) {
+            width: 32%;
+        }
+
+        /* 4 */
+        .imageBox img:nth-child(1):nth-last-child(4),
+        .imageBox img:nth-child(2):nth-last-child(3),
+        .imageBox img:nth-child(3):nth-last-child(2),
+        .imageBox img:nth-child(4):nth-last-child(1) {
+            width: 49%;
+        }
+
+        /*  5张以上图片  */
+        .imageBox img:nth-child(1):nth-last-child(n + 5),
+        .imageBox img:nth-child(1):nth-last-child(n + 5)~img {
+            width: 32%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="imageBox">
+            <img src="https://t7.baidu.com/it/u=1595072465,3644073269&fm=193&f=GIF" />
+            <!-- <img src="https://t7.baidu.com/it/u=1595072465,3644073269&fm=193&f=GIF" /> -->
+            <!-- <img src="https://t7.baidu.com/it/u=1595072465,3644073269&fm=193&f=GIF" />
+            <img src="https://t7.baidu.com/it/u=1595072465,3644073269&fm=193&f=GIF" />
+            <img src="https://t7.baidu.com/it/u=1595072465,3644073269&fm=193&f=GIF" />
+            <img src="https://t7.baidu.com/it/u=1595072465,3644073269&fm=193&f=GIF" />
+            <img src="https://t7.baidu.com/it/u=1595072465,3644073269&fm=193&f=GIF" />
+            <img src="https://t7.baidu.com/it/u=1595072465,3644073269&fm=193&f=GIF" />
+            <img src="https://t7.baidu.com/it/u=1595072465,3644073269&fm=193&f=GIF" /> -->
+        </div>
+    </div>
+</body>
+
+</html>
